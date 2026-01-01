@@ -1,0 +1,90 @@
+# Webbundle Starter Kit - Supplier OS Application
+
+This is a React TypeScript starter project representing a "Bug Bounty Challenge" application. It includes a home page listing known issues (which have been fixed), a user avatar menu, and language switching capabilities.
+
+## Features
+
+- **React & TypeScript**: Built with strict typing for robustness.
+- **State Management**: MobX for user state.
+- **UI Components**: Material-UI (MUI) v5.
+- **Internationalization**: `react-i18next` with English (EN) and German (DE) support.
+- **Routing**: `react-router-dom` v5 with custom hook-based routing.
+- **Testing**:
+    - **Unit Tests**: Jest & React Testing Library.
+    - **E2E Tests**: Playwright & Cypress.
+
+## Prerequisites
+
+- **Node.js**: Version 17+ (Tested with v24.5.0).
+- **Package Manager**: npm.
+
+> **Note**: Due to the use of `react-scripts` v4, this project requires the `--openssl-legacy-provider` flag on newer Node versions (automatically handled in scripts).
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
+
+To start the development server on `http://localhost:3000`:
+
+```bash
+npm start
+```
+
+> The `start` script automatically applies `NODE_OPTIONS=--openssl-legacy-provider` and disables the incompatible legacy ESLint plugin via `.env`.
+
+## Testing
+
+### Unit Tests
+Run unit tests (Jest):
+```bash
+npm test
+```
+
+### End-to-End (E2E) Tests
+
+#### Playwright
+Run the Playwright test suite (headless):
+```bash
+npx playwright test
+```
+To view the report:
+```bash
+npx playwright show-report
+```
+
+#### Cypress
+Run Cypress tests (headless):
+```bash
+npx cypress run
+```
+To open the interactive runner:
+```bash
+npx cypress open
+```
+
+## Project Structure
+
+- `src/api`: API services and MobX stores (e.g., `UserStore`).
+- `src/components`: Reusable UI components (`AppHeader`, `AvatarMenu`).
+- `src/i18n`: Locale configuration and JSON translation files.
+- `src/pages`: Application pages (`Home`, `Root`).
+- `src/themes`: MUI theme customization.
+- `src/utils`: Helper functions.
+- `tests/`: Playwright E2E tests.
+- `cypress/`: Cypress E2E tests.
+- `**/__tests__/`: Unit tests co-located with components.
+
+## Known Issues (Fixed)
+
+The following bugs were present in the initial codebase and have been resolved:
+1.  **Console Error**: Fixed unique `key` prop warning in Home list.
+2.  **Bold Text**: Fixed `i18n` interpolation using `<Trans>` component.
+3.  **User Avatar**: Fixed missing avatar (typo in store) and crash (ref forwarding).
+4.  **Countdown**: Fixed `useEffect` memory leak/glitch.
+5.  **Language**: Implemented full language switcher and fallback logic.
+6.  **Startup**: Fixed `process is not defined` error via `react-error-overlay` pin.
+7.  **Compilation**: Resolved Typescript/Webpack conflicts.
