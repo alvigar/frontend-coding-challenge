@@ -1,4 +1,4 @@
-import { Grow, Box, Theme, Toolbar, Typography } from "@mui/material";
+import { Grow, Box, Theme, Toolbar, Typography, Select, MenuItem } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { styled, useTheme } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
@@ -29,9 +29,9 @@ const AppBar = styled(MuiAppBar)<AppBarProps>(({ theme }) => ({
   height: theme.tokens.header.height
 }));
 
-const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
+const AppHeader = React.forwardRef<HTMLDivElement, AppHeaderProps>((props, ref) => {
   const { user, pageTitle } = props;
-  const { t } = useTranslation("app");
+  const { t, i18n } = useTranslation("app");
   const theme = useTheme();
 
   const [count, setCount] = useState(0);
@@ -43,9 +43,10 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
   const countdownSeconds = (countdown % 60).toFixed(0).padStart(2, "0");
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -79,7 +80,17 @@ const AppHeader = React.forwardRef((props: AppHeaderProps, ref) => {
               {pageTitle.toLocaleUpperCase()}
             </Typography>
           </Box>
-          <Box sx={{ flex: 1, justifyContent: "flex-end", display: "flex" }}>
+          <Box sx={{ flex: 1, justifyContent: "flex-end", display: "flex", alignItems: "center" }}>
+            <Select
+              value={i18n.language.split("-")[0]}
+              onChange={(e) => i18n.changeLanguage(e.target.value as string)}
+              sx={{ color: "white", mr: 2, ".MuiSelect-icon": { color: "white" } }}
+              variant="standard"
+              disableUnderline
+            >
+              <MenuItem value="en">EN</MenuItem>
+              <MenuItem value="de">DE</MenuItem>
+            </Select>
             {user && user.eMail && (
               <Grow in={Boolean(user && user.eMail)}>
                 <AvatarMenu user={user} />

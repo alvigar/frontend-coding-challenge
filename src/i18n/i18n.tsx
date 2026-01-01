@@ -43,7 +43,9 @@ i18n
     resources,
     ns: ["common", "app"],
     defaultNS: "app",
-    lng: FALLBACK_LANGUAGE || browserLanguage,
+    lng: defaultLanguages.includes(browserLanguage)
+      ? browserLanguage
+      : FALLBACK_LANGUAGE,
     fallbackLng: FALLBACK_LANGUAGE,
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default

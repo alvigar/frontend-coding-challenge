@@ -4,7 +4,7 @@ export const validateParams = <ERoute extends string>(
   path: ERoute,
   params: unknown
 ): params is PathParams => {
-  if (!(params instanceof Object)) return false;
+  if (typeof params !== "object" || params === null) return false;
 
   const paramSet = new Set(Object.keys(params));
 

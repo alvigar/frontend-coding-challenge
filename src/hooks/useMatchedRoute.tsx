@@ -8,13 +8,13 @@ interface UseMatchedRouteOptions {
   notFoundComponent?: React.FC;
   matchOnSubPath?: boolean;
   transition?:
-    | "none"
-    | "fade"
-    | "grow"
-    | "slide-up"
-    | "slide-down"
-    | "slide-left"
-    | "slide-right";
+  | "none"
+  | "fade"
+  | "grow"
+  | "slide-up"
+  | "slide-down"
+  | "slide-left"
+  | "slide-right";
 }
 
 const useMatchedRoute = (
@@ -108,7 +108,7 @@ const useMatchedRoute = (
               key={path + "matchOnSubPath"}
               path={`/${path.split("/").slice(1, 2)}/*`}
             >
-              {({ match }) => (
+              {({ match }: { match: any }) => (
                 <Transition match={match}>
                   <RouteComponent />
                 </Transition>
@@ -117,7 +117,7 @@ const useMatchedRoute = (
           ))}
         {routes.map(({ path, Component: RouteComponent }, i) => (
           <Route key={path + "root"} sensitive strict exact path={path}>
-            {({ match }) => (
+            {({ match }: { match: any }) => (
               <Transition match={match}>
                 <RouteComponent />
               </Transition>

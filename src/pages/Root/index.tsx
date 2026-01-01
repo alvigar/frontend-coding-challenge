@@ -28,7 +28,7 @@ const Root = () => {
   const { user } = userStore || {};
   const theme = useTheme();
   console.log(user);
-  const routes = [...useRoutes] as readonly TRoute[];
+  const routes = [...useRoutes] as TRoute[];
   const [fallbackRoute] = routes;
   const Fallback = fallbackRoute.Component;
   const { route = fallbackRoute, MatchedElement } = useMatchedRoute(
