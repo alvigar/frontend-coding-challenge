@@ -34,35 +34,6 @@ npm start
 
 > The `start` script automatically handles configuration and disables the incompatible legacy ESLint plugin via `.env`.
 
-## Testing
-
-### Unit Tests
-Run unit tests (Jest):
-```bash
-npm test
-```
-
-### End-to-End (E2E) Tests
-
-#### Playwright
-Run the Playwright test suite (headless):
-```bash
-npx playwright test
-```
-To view the report:
-```bash
-npx playwright show-report
-```
-
-#### Cypress
-Run Cypress tests (headless):
-```bash
-npx cypress run
-```
-To open the interactive runner:
-```bash
-npx cypress open
-```
 
 ## Project Structure
 
@@ -72,9 +43,6 @@ npx cypress open
 - `src/pages`: Application pages (`Home`, `Root`).
 - `src/themes`: MUI theme customization.
 - `src/utils`: Helper functions.
-- `tests/`: Playwright E2E tests.
-- `cypress/`: Cypress E2E tests.
-- `**/__tests__/`: Unit tests co-located with components.
 
 ## Known Issues (Fixed)
 
