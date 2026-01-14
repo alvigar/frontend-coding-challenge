@@ -15,10 +15,8 @@ This is a React TypeScript starter project representing a "Bug Bounty Challenge"
 
 ## Prerequisites
 
-- **Node.js**: Version 17+ (Tested with v24.5.0).
+- **Node.js**: Version 17 (only this version works, no `NODE_OPTIONS` variable needed).
 - **Package Manager**: npm.
-
-> **Note**: Due to the use of `react-scripts` v4, this project requires the `--openssl-legacy-provider` flag on newer Node versions (automatically handled in scripts).
 
 ## Installation
 
@@ -34,7 +32,7 @@ To start the development server on `http://localhost:3000`:
 npm start
 ```
 
-> The `start` script automatically applies `NODE_OPTIONS=--openssl-legacy-provider` and disables the incompatible legacy ESLint plugin via `.env`.
+> The `start` script automatically handles configuration and disables the incompatible legacy ESLint plugin via `.env`.
 
 ## Testing
 
