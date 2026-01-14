@@ -9,9 +9,6 @@ This is a React TypeScript starter project representing a "Bug Bounty Challenge"
 - **UI Components**: Material-UI (MUI) v5.
 - **Internationalization**: `react-i18next` with English (EN) and German (DE) support.
 - **Routing**: `react-router-dom` v5 with custom hook-based routing.
-- **Testing**:
-    - **Unit Tests**: Jest & React Testing Library.
-    - **E2E Tests**: Playwright & Cypress.
 
 ## Prerequisites
 
